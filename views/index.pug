@@ -1,5 +1,24 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1= lib
+  p Welcome to nate's libary
+  p here are my books
+
+  input(type="text" onkeyup="searchBooks()" autocomplete="off")#search
+  //- label(for="fictioncheck") Fiction
+  //-   input(type="checkbox" onchange="toggleFiction()")#fictioncheck
+
+  table#booktable
+    tr
+      th Title
+      th Author(s)
+      th Fiction
+    each book in books
+      tr
+        td= book.title
+        td= book.author
+        td= book.fiction
+
+  script
+    include ../public/javascripts/index.js
