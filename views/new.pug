@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Add a new book
+  form(action="/new" method="POST")
+    label(for="title") Book title:&nbsp;
+    input(type="text" name="title" placeholder="Herry Pooter")
+    br
+    label(for="author") Book author(s):&nbsp;
+    input(type="text" name="author" placeholder="JKROFL")
+    br
+    label(for="fiction") Fiction:
+    input(type="checkbox" name="fiction")
+    br
+    input(type="submit" value="Add book")
