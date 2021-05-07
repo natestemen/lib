@@ -5,24 +5,32 @@ function searchBooks() {
   table = document.getElementById("booktable");
   tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+  for (row of tr) {
+    td = row.getElementsByTagName("td")[0];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
+        row.style.display = "";
       } else {
-        tr[i].style.display = "none";
+        row.style.display = "none";
       }
     }
   }
 }
 
-// function toggleFiction() {
-//   var newState = "hidden";
-//   table = document.getElementById("booktable");
-//   tr = table.getElementsByTagName("tr");
-//   for (row of tr) {
-//     console.log(row);
-//   }
-// }
+// TODO: this doesn't play nice with search
+function toggleFiction() {
+  var newState = document.getElementById("fictioncheck").checked;
+  let visibility = newState ? "none" : "";
+  table = document.getElementById("booktable");
+  tr = table.getElementsByTagName("tr");
+  for (row of tr) {
+    td = row.getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue == "no") {
+        row.style.display = visibility;
+      }
+    }
+  }
+}

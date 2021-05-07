@@ -5,9 +5,9 @@ block content
   p Welcome to nate's libary
   p here are my books
 
-  input(type="text" onkeyup="searchBooks()" autocomplete="off")#search
-  //- label(for="fictioncheck") Fiction
-  //-   input(type="checkbox" onchange="toggleFiction()")#fictioncheck
+  input(type="text" onkeyup="searchBooks()" autocomplete="off" placeholder="Search Book Titles")#search
+  label(for="fictioncheck") Fiction
+    input(type="checkbox" onchange="toggleFiction()")#fictioncheck
 
   table#booktable
     tr
