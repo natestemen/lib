@@ -31,14 +31,13 @@ router.post("/new", function (request, response, next) {
   pool.query(
     "INSERT INTO books(title, author, fiction) VALUES ($1, $2, $3)",
     newBook, // NEEDS SANITIZATION
-    (error, response) => {
+    (error, queryResponse) => {
       if (error) {
         throw error;
       }
-      console.log(response);
+      response.render("success", { title: request.body.title });
     }
   );
-  response.status(200).json({ hello: request.body.title });
 });
 
 module.exports = router;
